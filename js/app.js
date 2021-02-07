@@ -9,15 +9,14 @@ loadData().then(countries => {
 
 const displayCountries = countries => {
     const countriesDiv = document.getElementById('countries');
-    for (let i = 0; i < countries.length; i++) {
-        const country = countries[i];
-        const countryDiv= document.createElement('div');
-        countryDiv.className= 'country';
+    countries.forEach(country => {
+        const countryDiv = document.createElement('div');
+        countryDiv.className = 'country';
         const countryInfo = `
             <h3 class="country-name">${country.name}</h3>
             <P>${country.capital}</p>
-        `
-        countryDiv.innerHTML= countryInfo;
+        `;
+        countryDiv.innerHTML = countryInfo;
         countriesDiv.appendChild(countryDiv);
-    }
+    });
 }
